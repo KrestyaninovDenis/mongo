@@ -4,7 +4,10 @@ const {Book} = require('../models');
 const fileMiddleware = require('../middleware/file');
 const redis = require ('redis');
 const REDIS_URL = process.env.REDIS_URL;
-const client = redis.createClient ('redis://${REDIS_URL}');
+const client = redis.createClient({
+    host: "redis",
+    port: 6379
+});
 
 const stor = {
     books: [],
@@ -50,7 +53,7 @@ client.incr(idx, (err, rep) => {
     } else {
         //res.json({ counter: rep});
         res.render("book/view", {
-            title: "Просмотр книги"+rep,
+            title: "Просмотр книги"+" (количество просмотров: "+rep+")",
             book: books[idx],
         });    
     }
