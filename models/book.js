@@ -1,4 +1,4 @@
-/*
+
 const uidGenerator = require ('node-unique-id-generator');
 
 class Book {
@@ -24,8 +24,8 @@ class Book {
 }
 
 module.exports = Book;
-*/
 
+/*
 const {Schema, model} = require('mongoose');
 const todoSchema = new Schema({
     title: {
@@ -62,3 +62,4 @@ const todoSchema = new Schema({
     }
 });
 module.exports = model('Book', todoSchema);
+*/

@@ -4,7 +4,7 @@ const app = express();
 const cors = require ('cors');
 const bodyParser = require ('body-parser');
 
-const mongoose = require('mongoose')
+//const mongoose = require('mongoose')
 
 const indexRouter = require('./routes/index');
 const bookAPIRouter = require('./routes/API/book');
@@ -24,13 +24,13 @@ app.use('/', indexRouter);
 app.use('/book', bookRouter);
 app.use('/api/book', bookAPIRouter);
 app.use(errorMiddleware);
-/*
+
 //const PORT = 3000;
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Сервер стартовал, порт: ${PORT}`);
 });
-*/
+/*
 const PORT = 3000;
 const UserDB = 'root';
 const PasswordDB = 'qwerty12345';
@@ -54,3 +54,4 @@ async function start(){
     }
 }
 start();
+*/

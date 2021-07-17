@@ -30,16 +30,3 @@ services:
             - ME_CONFIG_MONGODB_ADMINPASSWORD=${DB_PASSWORD:-password}
         depends_on:
             - mongodb   
-
-    books:
-        build: .
-        ports:
-            - 80:3000
-        environment:
-            - PORT=3000
-            - DB_USERNAME=${DB_USERNAME:-root}
-            - DB_PASSWORD=${DB_PASSWORD:-password}
-            - DB_NAME=${DB_NAME:-todos_database}
-            - DB_HOST=mongodb://mongodb:27017
-        depends_on:
-            - mongodb

@@ -11,7 +11,7 @@ const client = redis.createClient({
     host: "redis",
     port: 6379
 });
-/*
+
 const stor = {
     books: [],
 }; 
@@ -19,8 +19,8 @@ const stor = {
     const newBook = new Book(`title ${el}`, `description ${el}`, `authors ${el}`, `favorite ${el}`, `fileCover ${el}`, `fileName ${el}`, `fileBook${el}`);
     stor.books.push(newBook);
 });
-*/
-/*
+
+
 router.get('/', (req, res) => { //получаем массив всех книг
     const {books} = stor;
     res.render("book/index", {
@@ -28,7 +28,7 @@ router.get('/', (req, res) => { //получаем массив всех кни�
         books: books,
     });
 });
-*/
+/*
 router.get('/', async (req, res) => {
     const Book = await Book.find();
     res.render("book/index", {
@@ -36,7 +36,8 @@ router.get('/', async (req, res) => {
         books: Book,
     });
 });
-/*
+*/
+
 router.get('/create', (req, res) => {
     res.render("book/create", {
         title: "Создание книги",
@@ -51,7 +52,7 @@ router.post('/create', (req, res) => {
     books.push(newBook);
     res.redirect('/book')
 });
-*/
+/*
 router.get('/create', (req, res) => {
     res.render("book/create", {
         title: "Создание книги",
@@ -73,8 +74,8 @@ router.post('/create', async (req, res) => {
         console.error(e);
     }
 });
+*/
 
-/*
 router.get('/:id', (req, res) => {
     const {books} = stor;
     const {id} = req.params;
@@ -88,7 +89,7 @@ client.incr(idx, (err, rep) => {
     } else {
         //res.json({ counter: rep});
         res.render("book/view", {
-            title: "Просмотр книги"+rep,
+            title: "Просмотр книги "+"(количество просмотров: "+rep+")",
             book: books[idx],
         });    
     }
@@ -131,8 +132,8 @@ router.post('/update/:id', (req, res) => {
         res.status(404).redirect('/404');
     }
 });
-*/
 
+/*
 router.get('/:id', async (req, res) => {
     const {id} = req.params;
     let book;
@@ -179,10 +180,10 @@ router.post('/update/:id', async (req, res) => {
 
     res.redirect(`/book/${id}`);
 });
+*/
 
 
 
-/*
 router.post('/delete/:id', (req, res) => {
     const {books} = stor;
     const {id} = req.params;
@@ -195,7 +196,7 @@ router.post('/delete/:id', (req, res) => {
         res.status(404).redirect('/404');
     }
 });
-*/
+/*
 router.post('/delete/:id', async (req, res) => {
     const {id} = req.params;
 
@@ -208,7 +209,7 @@ router.post('/delete/:id', async (req, res) => {
 
     res.redirect(`/book`);
 });
-
+*/
 
 
 module.exports = router;
