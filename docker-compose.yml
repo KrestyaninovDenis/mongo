@@ -1,6 +1,6 @@
 services:
     redis:
-        image: redis
+        image: "redis"
     counter:
         build: .
         ports:
