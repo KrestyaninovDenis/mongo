@@ -53,7 +53,7 @@ client.incr(idx, (err, rep) => {
     } else {
         //res.json({ counter: rep});
         res.render("book/view", {
-            title: "Просмотр книги"+" (количество просмотров: "+rep+")",
+            title: "Просмотр книги"+rep,
             book: books[idx],
         });    
     }
