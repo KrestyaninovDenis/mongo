@@ -7,10 +7,10 @@ const router = express.Router();
 const Todo = require('../models/book')
 
 router.get('/', async (req, res) => {
-    const todo = await Todo.find();
+    const book = await Book.find();
     res.render("book/index", {
         title: "ToDo",
-        books: todo,
+        books: book,
     });
 });
 
@@ -24,7 +24,7 @@ router.get('/create', (req, res) => {
 router.post('/create', async (req, res) => {
     const {title, description, authors} = req.body;
 
-    const newTodo = new Todo({
+    const newTodo = new Book({
         title, description, authors
     });
 
