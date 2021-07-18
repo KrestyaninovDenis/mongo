@@ -29,9 +29,9 @@ async function start() {
     try {
         await 
             mongoose.connect(HostDb, {
-            user: root,
-            pass: password,
-            dbName: books_database,
+            user: "root",
+            pass: "password",
+            dbName: "books_database",
             useNewUrlParser: true,
             useUnifiedTopology: true
             });
