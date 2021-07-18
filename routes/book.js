@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 //const {Book} = require('../models');
 //const Todo = require('../models/todo');
-const Book = require('../models/book');
+const Book = require('../models');
 /*
 const stor = {
     books: [],
