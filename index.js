@@ -22,12 +22,20 @@ app.listen(PORT, () => {
     console.log(`Сервер стартовал, порт: ${PORT}`);
 });
 */
-
 const PORT = process.env.PORT || 3000;
+const HostDb = process.env.DB_HOST || 'mongodb://94.228.115.129:27017/'
+
 async function start() {
     try {
         await 
-        mongoose.connect('mongodb://94.228.115.129:27017/books_database');
+            mongoose.connect(HostDb, {
+            user: root,
+            pass: password,
+            dbName: books_database,
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+            });
+        // mongoose.connect('mongodb://94.228.115.129:27017/books_database');
         app.listen(PORT, () => {
             console.log(`Сервер стартовал, порт: ${PORT}`);
         })   
