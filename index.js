@@ -37,7 +37,7 @@ async function start() {
 }}
 start();
 
-const Todo = require('../../models/todo');
+const Todo = require('/models/todo');
 const newTodo = new Todo({
     title: 'title...',
     desc: 'desc...',
