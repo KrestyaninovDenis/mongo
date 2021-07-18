@@ -45,16 +45,3 @@ async function start() {
 }}
 start();
 
-const Todo = require('/models/todo');
-const newTodo = new Todo({
-    title: 'title...',
-    desc: 'desc...',
-});
-try {
-    await 
-    newTodo.save();
-} 
-catch (e) {
-    console.error(e);
-}
-
