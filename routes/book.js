@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 
-const Todo = require('../models/book')
+const Book = require('../models/book')
 
 router.get('/', async (req, res) => {
     const book = await Book.find();
