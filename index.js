@@ -29,7 +29,7 @@ const PORT = process.env.PORT || 3000;
 const UserDB = process.env.DB_USERNAME || 'root';
 const PasswordDB = process.env.DB_PASSWORD || 'password';
 const NameDB = process.env.DB_NAME || 'todos_database'
-const HostDb = process.env.DB_HOST || 'mongodb://localhost:27017/'
+const HostDb = process.env.DB_HOST || 'mongodb://94.228.115.129:27017/todos_database'
 async function start() {
     try {        
         await mongoose.connect(HostDb, {
