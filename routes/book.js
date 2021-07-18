@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         books: todo,
     });
 });
-/*
+
 router.get('/create', (req, res) => {
     res.render("book/create", {
         title: "ToDo | create",
@@ -22,20 +22,20 @@ router.get('/create', (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-    const {title, desc} = req.body;
+    const {title, description, authors} = req.body;
 
     const newTodo = new Todo({
-        title, desc,
+        title, description, authors
     });
 
     try {
         await newTodo.save();
-        res.redirect('/todo');
+        res.redirect('/book');
     } catch (e) {
         console.error(e);
     }
 });
-*/
+
 
 /*
 const {Book} = require('../models');
