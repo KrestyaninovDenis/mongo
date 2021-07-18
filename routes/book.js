@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {Book} = require('../models');
-const Todo = require('../models/todo');
-
+//const {Book} = require('../models');
+//const Todo = require('../models/todo');
+const Book = require('../models/book');
+/*
 const stor = {
     books: [],
 }; 
@@ -10,7 +11,10 @@ const stor = {
     const newBook = new Book(`title ${el}`, `description ${el}`, `authors ${el}`, `favorite ${el}`, `fileCover ${el}`, `fileName ${el}`, `fileBook${el}`);
     stor.books.push(newBook);
 });
+*/
 
+
+/*
 router.get('/', (req, res) => { //получаем массив всех книг
     const {books} = stor;
     res.render("book/index", {
@@ -18,6 +22,16 @@ router.get('/', (req, res) => { //получаем массив всех кни�
         books: books,
     });
 });
+*/
+router.get('/', async (req, res) => {
+    const book = await Book.find();
+    res.render("book/index", {
+        title: "ToDo",
+        books: book,
+    });
+});
+
+
 /*
 router.get('/create', (req, res) => {
     res.render("book/create", {
@@ -36,21 +50,21 @@ router.post('/create', (req, res) => {
 */
 
 router.get('/create', (req, res) => {
-    res.render("todo/create", {
+    res.render("book/create", {
         title: "ToDo | create",
         todo: {},
     });
 });
 
 router.post('/create', async (req, res) => {
-    const {title, description} = req.body;
+    const {title, description, authors} = req.body;
 
-    const newTodo = new Todo({
-        title, description,
+    const newBook = new Book({
+        title, description, authors
     });
 
     try {
-        await newTodo.save();
+        await newBook.save();
         res.redirect('/book');
     } catch (e) {
         console.error(e);
