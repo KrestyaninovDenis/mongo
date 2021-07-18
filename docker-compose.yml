@@ -29,6 +29,6 @@ services:
             - DB_USERNAME=${DB_USERNAME:-root}
             - DB_PASSWORD=${DB_PASSWORD:-password}
             - DB_NAME=${DB_NAME:-todos_database}
-            - DB_HOST=mongodb://localhost:27017/todos_database
+            - DB_HOST=mongodb://localhost:27017/
         depends_on:
             - mongodb
