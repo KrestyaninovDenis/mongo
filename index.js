@@ -23,7 +23,7 @@ app.listen(PORT, () => {
 });
 */
 const PORT = process.env.PORT || 3000;
-const HostDb = process.env.DB_HOST || 'mongodb://94.228.115.129:27017/'
+const HostDb = process.env.DB_HOST || 'mongodb://94.228.115.129:27017/books_database'
 
 async function start() {
     try {
