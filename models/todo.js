@@ -4,7 +4,7 @@ const todoSchema = new Schema({
         type: String, 
         required: true,   
     },
-    desc: {
+    description: {
         type: String, 
         default: "",   
     },
