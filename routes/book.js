@@ -37,6 +37,65 @@ router.post('/create', async (req, res) => {
 });
 
 
+router.get('/:id', async (req, res) => {
+    const {id} = req.params;
+    let book;
+    try {
+        book = await Book.findById(id);
+    } catch (e) {
+        console.error(e);
+        res.status(404).redirect('/404');
+    }
+
+    res.render("book/view", {
+        title: "ToDo | view",
+        book: book,
+    });
+});
+
+router.get('/update/:id', async (req, res) => {
+    const {id} = req.params;
+    let book;
+    try {
+        book = await Book.findById(id);
+    } catch (e) {
+        console.error(e);
+        res.status(404).redirect('/404');
+    }
+
+    res.render("todo/update", {
+        title: "ToDo | view",
+        book: book,
+    });
+});
+
+router.post('/update/:id', async (req, res) => {
+    const {id} = req.params;
+    const {title, description, authors} = req.body;
+
+    try {
+        await Book.findByIdAndUpdate(id, {title, description, authors});
+    } catch (e) {
+        console.error(e);
+        res.status(404).redirect('/404');
+    }
+
+    res.redirect(`/book/${id}`);
+});
+
+router.post('/delete/:id', async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        await Book.deleteOne({_id: id});
+    } catch (e) {
+        console.error(e);
+        res.status(404).redirect('/404');
+    }
+
+    res.redirect(`/book`);
+});
+
 /*
 const {Book} = require('../models');
 const stor = {
