@@ -63,7 +63,7 @@ router.get('/update/:id', async (req, res) => {
         res.status(404).redirect('/404');
     }
 
-    res.render("todo/update", {
+    res.render("book/update", {
         title: "ToDo | view",
         book: book,
     });
