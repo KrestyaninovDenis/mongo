@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {Book} = require('../models');
+const Todo = require('../models/todo');
 
 const stor = {
     books: [],
@@ -17,7 +18,7 @@ router.get('/', (req, res) => { //получаем массив всех кни�
         books: books,
     });
 });
-
+/*
 router.get('/create', (req, res) => {
     res.render("book/create", {
         title: "Создание книги",
@@ -32,6 +33,31 @@ router.post('/create', (req, res) => {
     books.push(newBook);
     res.redirect('/book')
 });
+*/
+
+router.get('/create', (req, res) => {
+    res.render("todo/create", {
+        title: "ToDo | create",
+        todo: {},
+    });
+});
+
+router.post('/create', async (req, res) => {
+    const {title, description} = req.body;
+
+    const newTodo = new Todo({
+        title, description,
+    });
+
+    try {
+        await newTodo.save();
+        res.redirect('/book');
+    } catch (e) {
+        console.error(e);
+    }
+});
+
+
 
 router.get('/:id', (req, res) => {
     const {books} = stor;
