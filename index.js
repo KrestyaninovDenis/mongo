@@ -16,12 +16,14 @@ app.set("view engine", "ejs");
 app.use('/', indexRouter);
 app.use('/book', bookRouter);
 app.use(errorMiddleware);
-/*
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Сервер стартовал, порт: ${PORT}`);
 });
-*/
+
+
+/*
 const PORT = process.env.PORT || 3000;
 const HostDb = process.env.DB_HOST || 'mongodb://94.228.115.129:27017/books_database'
 
@@ -44,4 +46,4 @@ async function start() {
         console.log(e);   
 }}
 start();
-
+*/
