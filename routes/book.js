@@ -72,7 +72,7 @@ router.post('/create', async (req, res) => {
 });
 
 
-
+/*
 router.get('/:id', (req, res) => {
     const {books} = stor;
     const {id} = req.params;
@@ -131,6 +131,6 @@ router.post('/delete/:id', (req, res) => {
         res.status(404).redirect('/404');
     }
 });
-
+*/
 
 module.exports = router;
